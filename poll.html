@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <title>Easypoll Bootstrap</title>
+</head>
+{{if .Success}}
+
+<h1>Copy and paste on Slack</h1>
+{{else}}
+<div class="container">
+
+    <h1>Insert your data</h1>
+    <form method="POST">
+        <label>Question:</label><br />
+        <input type="text" name="question" /><br />
+        <label>option1:</label><br />
+        <input type="text" name="opt1" /><br />
+        <label>option2:</label><br />
+        <input type="text" name="opt2" /><br />
+        <div>
+            <button type="submit" class="btn btn-primary">Generate Poll</button></div>
+    </form>
+
+    <div>
+        <!-- Target -->
+        <textarea id="bar">Mussum ipsum cacilds...</textarea>
+
+        <!-- Trigger -->
+        <div><button class="btn btn-outline-primary" onclick="myFunction()">
+          Cut to clipboard
+        </button></div>
+    </div>
+</div>
+
+{{end}}
+
+<script type="text/javascript">
+    function changeIt() {
+        var i = 1;
+        var j = 1;
+        document.getElementById("my_div").innerHTML = "<br><br><input type='text' name='mytext" + i + "' value='pleaseEnter malzeme'><input type='text' name='mytet2" + j + "' value='please quantity'>"
+    }
+</script>
+
+<input type="button" value="Add Ingredients" onClick="changeIt()">
+<div id="my_div"></div>
+
+<!-- Example  to add items-->
+
+<script>
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("bar");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    }
+</script>
+
+</html>

@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
+	"strings"
 )
 
 type ContactDetails struct {
@@ -12,7 +14,7 @@ type ContactDetails struct {
 }
 
 func main() {
-	tmpl := template.Must(template.ParseFiles("forms.html"))
+	tmpl := template.Must(template.ParseFiles("poll.html"))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
@@ -26,6 +28,13 @@ func main() {
 			Subject: r.FormValue("opt1"),
 			Message: r.FormValue("opt2"),
 		}
+		options := []string{
+			details.Email, details.Subject, details.Message}
+
+		answer := strings.Join(options, "\" \"")
+
+		/* answer := fmt.Sprintf("/easypoll \"%s\" \"%s\" \"%s\"", details.Email, details.Subject, details.Message) */
+		fmt.Print("/easypoll \"", answer, "\"")
 
 		// do something with details
 		_ = details
