@@ -2,28 +2,33 @@
 <html>
 <body>
 
-<p>A function is triggered when the user is pressing a key in the input field.</p>
+<h1>Fill your options</h1>
 <form autocomplete="off">
-    
-<input type="text" placeholder="Type something" size="30" id="demo">
-<p type="textarea" id="log"></p>
-
-
+    <label>Question:</label><br />
+<input placeholder="Enter your question" name="name" id="question" maxlength = "100"/>
+<br>
+<label>Option1:</label><br />
+<input placeholder="Enter the first option" name="name" id="opt1" maxlength = "30"/> <br>
+<p id="values"></p>
 </form>
-
-
 
 <script>
 
 
-let input = document.getElementById('demo');
-let log = document.getElementById('log');
+const question = document.getElementById('question');
+const opt1 = document.getElementById('opt1');
 
-input.oninput = handleInput;
+const log = document.getElementById('values');
 
-function handleInput(e) {
-  log.textContent = `/easypoll \"${e.target.value}\" `;
+question.addEventListener('input', updateValue);
+opt1.addEventListener('input', updateValue);
+
+
+function updateValue(result) {
+    log.textContent = `/easypoll "${question.value}" "${opt1.value}"`
 }
+
+
 </script>
 
 </body>
