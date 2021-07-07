@@ -3,34 +3,26 @@
 <body>
 
 <p>A function is triggered when the user is pressing a key in the input field.</p>
-<form autocomplete="off"><input type="text" onkeypress="myFunction()" id="demo">
-<input type="textarea" id="text"></form>
+<form autocomplete="off">
+    
+<input type="text" placeholder="Type something" size="30" id="demo">
+<p type="textarea" id="log"></p>
 
 
-<p>Focus the IFrame first (e.g. by clicking in it), then try pressing some keys.</p>
-<p id="log"></p>
+</form>
 
 
 
 <script>
-function myFunction() {
-	let demo = document.getElementById("demo").value
-    
-    let text = demo.length
-    let texto = demo.innerText
-    
-  console.log(text);
-  console.log(demo)
-  
-}
 
 
+let input = document.getElementById('demo');
+let log = document.getElementById('log');
 
-document.addEventListener('keydown', logKey);
+input.oninput = handleInput;
 
-function logKey(e) {
-  log.textContent += ` ${e.code}`;
-  document.getElementById("text").value += ` ${e.text}`
+function handleInput(e) {
+  log.textContent = `/easypoll \"${e.target.value}\" `;
 }
 </script>
 
