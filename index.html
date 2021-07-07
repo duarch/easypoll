@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>A function is triggered when the user is pressing a key in the input field.</p>
+<form autocomplete="off"><input type="text" onkeypress="myFunction()" id="demo">
+<input type="textarea" id="text"></form>
+
+
+<p>Focus the IFrame first (e.g. by clicking in it), then try pressing some keys.</p>
+<p id="log"></p>
+
+
+
+<script>
+function myFunction() {
+	let demo = document.getElementById("demo").value
+    
+    let text = demo.length
+    let texto = demo.innerText
+    
+  console.log(text);
+  console.log(demo)
+  
+}
+
+
+
+document.addEventListener('keydown', logKey);
+
+function logKey(e) {
+  log.textContent += ` ${e.code}`;
+  document.getElementById("text").value += ` ${e.text}`
+}
+</script>
+
+</body>
+</html>
