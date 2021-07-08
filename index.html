@@ -34,24 +34,27 @@
         <div class="container">
             <h1>Fill your options</h1>
 
-            <form autocomplete="off" class="row g-2" id="easyform">
+            <form autocomplete="off" class="row g-3" id="easyform">
                 <label for="exampleFormControlTextarea1" class="form-label">Question</label
           >
           <textarea
-            class="form-control"
+            class="form-control col-9"
+            placeholder="Poll question"
             rows="3"
             id="question"
             maxlength="100"
-            style="height: 80px"
-          ></textarea>
+            style="height: 80px; width: 30em"
+          ></textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
 
-          <label>Option 1:</label><br />
-                <input class="col-8" placeholder="Enter an option" name="name" id="opt1" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter"></label>
+                <label>Option 1:</label><br />
+                <input class="col-8" placeholder="Enter an option" name="name" id="opt1" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter1"></label>
                 <br />
                 <label>Option 2:</label><br />
-                <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" /><span></span>
+                <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter2"></label>
                 <br />
-                <input type="button" onclick="resetForm()" value="Reset form" />
+                <br/>
+                <div class="d-grid gap-2 d-md-block">
+                    <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" /></div>
                 <div id="newElementId">New inputbox goes here:</div>
                 <p id="values"></p>
                 <div id="dynamicCheck">
@@ -90,19 +93,72 @@
         </div>
     </footer>
     <script>
+        // TODO 
+        //  - inactive empty fields
+        //  - add more items (until 7)
+        //  - copy to clipboard function
+
+
+
+
+
         const question = document.getElementById("question");
         const opt1 = document.getElementById("opt1");
         const opt2 = document.getElementById("opt2");
 
         const log = document.getElementById("values");
-        const counter = document.getElementById("counter");
+
+        const qtcounter = document.getElementById("qtcounter");
+        const counter1 = document.getElementById("counter1");
+        const counter2 = document.getElementById("counter2");
 
         question.addEventListener("input", updateValue);
-        opt1.addEventListener("input", maxFieldCapacity);
+        opt1.addEventListener("input", updateValue);
         opt2.addEventListener("input", updateValue);
 
+
         function updateValue() {
-            log.textContent = `/easypoll "${question.value}" "${opt1.value}" "${opt2.value}"`;
+            var txtQuest = ""
+            var txtOpt1 = ""
+            var txtOpt2 = ""
+            var qt = question.value.length;
+            var ct1 = opt1.value.length;
+            var ct2 = opt2.value.length;
+
+            if (qt != 0) {
+                var quest1 = -100 + qt;
+                qtcounter.textContent = `${quest1}`;
+                txtQuest = `"${question.value}"`
+            } else {
+                qtcounter.textContent = "";
+            }
+            if (ct1 != 0) {
+                var chars1 = -30 + ct1;
+                counter1.textContent = `${chars1}`;
+                txtOpt1 = `"${opt1.value}"`
+            } else {
+                counter1.textContent = "";
+            }
+            if (ct2 != 0) {
+                var chars2 = -30 + ct2;
+                counter2.textContent = `${chars2}`;
+                txtOpt2 = `"${opt2.value}"`
+            } else {
+                counter2.textContent = "";
+            }
+
+            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2}`;
+        }
+
+
+
+
+        function resetForm() {
+            document.getElementById("easyform").reset();
+            counter1.textContent = "";
+            counter2.textContent = "";
+            qtcounter.textContent = "";
+            log.textContent = "";
         }
 
         function createNewElement() {
@@ -115,19 +171,6 @@
 
             // Finally put it where it is supposed to appear.
             document.getElementById("newElementId").appendChild(txtNewInputBox);
-        }
-
-        function maxFieldCapacity() {
-            var chars = -30 + opt1.value.length;
-            counter.textContent = `${chars}`;
-            console.log(opt1.value.length);
-            console.log(chars);
-        }
-
-        function resetForm() {
-            document.getElementById("easyform").reset();
-            counter.textContent = " ";
-            log.textContent = " ";
         }
     </script>
 </body>
