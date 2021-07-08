@@ -1,35 +1,116 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<h1>Fill your options</h1>
-<form autocomplete="off">
-    <label>Question:</label><br />
-<input placeholder="Enter your question" name="name" id="question" maxlength = "100"/>
-<br>
-<label>Option1:</label><br />
-<input placeholder="Enter the first option" name="name" id="opt1" maxlength = "30"/> <br>
-<p id="values"></p>
-</form>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Easypoll Bootstrap</title>
 
-<script>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link
+      href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/sticky-footer.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <div class="container">
+        <h1>Fill your options</h1>
 
-const question = document.getElementById('question');
-const opt1 = document.getElementById('opt1');
+        <form autocomplete="off">
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Leave a comment here"
+              id="question"
+              maxlength="100"
+              style="height: 80px"
+            ></textarea>
+            <label for="question">Question:</label>
+          </div>
+          <label>Option 1:</label><br />
+          <input
+            class="col-sm-7"
+            placeholder="Enter an option"
+            name="name"
+            id="opt1"
+            maxlength="30"
+          />
+          <br />
+          <label>Option 2:</label><br />
+          <input
+            class="col-sm-7"
+            placeholder="Enter another option"
+            name="name"
+            id="opt2"
+            maxlength="30"
+          />
+          <br />
+          <div id="newElementId">New inputbox goes here:</div>
+          <p id="values"></p>
+          <div id="dynamicCheck">
+            <input
+              type="button"
+              value="Create Element"
+              onclick="createNewElement();"
+            />
+          </div>
+        </form>
+      </div>
+    </main>
 
-const log = document.getElementById('values');
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+    <script>
+      const question = document.getElementById("question");
+      const opt1 = document.getElementById("opt1");
+      const opt2 = document.getElementById("opt2");
 
-question.addEventListener('input', updateValue);
-opt1.addEventListener('input', updateValue);
+      const log = document.getElementById("values");
 
+      question.addEventListener("input", updateValue);
+      opt1.addEventListener("input", updateValue);
+      opt2.addEventListener("input", updateValue);
+      function updateValue(result) {
+        log.textContent = `/easypoll "${question.value}" "${opt1.value}" "${opt2.value}"`;
+      }
 
-function updateValue(result) {
-    log.textContent = `/easypoll "${question.value}" "${opt1.value}"`
-}
+      function createNewElement() {
+        // First create a DIV element.
+        var txtNewInputBox = document.createElement("div");
 
+        // Then add the content (a new input box) of the element.
+        txtNewInputBox.innerHTML = '<input type="text" class="col-sm-7" placeholder="Enter another option" name="name" maxlength="30">';
 
-</script>
-
-</body>
+        // Finally put it where it is supposed to appear.
+        document.getElementById("newElementId").appendChild(txtNewInputBox);
+      }
+    </script>
+  </body>
 </html>
