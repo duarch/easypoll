@@ -36,68 +36,88 @@
         <div class="container">
             <h1>Fill your options</h1>
 
-            <form autocomplete="off" class="row g-3" id="easyform">
-                <label for="exampleFormControlTextarea1" class="form-label">Question</label
-          >
-          <textarea
-            class="form-control col-9"
-            placeholder="Poll question"
-            rows="3"
-            id="question"
-            maxlength="100"
-            style="height: 80px; width: 18em"
-          ></textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
-                <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"></path>
-                      </svg></button>
-                    <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2"></input>
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                        <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"/>
-                      </svg></button></div>
+            <div class="justify-content-start">
+                <form autocomplete="off" class="row g-4" id="easyform">
+                    <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label">Question</label>
+                    <textarea class="form-control col-9" placeholder="Poll question" rows="3" id="question" maxlength="100" style="height: 80px; width: 18em"></textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
+                    <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
+                        </path>
+                    </svg>
+                    </button>
+                        <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2"></input>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
+                            </svg></button></div>
+                    <!-- model -->
+                    <!-- <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3">
+                        </div>
+                    </div> -->
+                    <!-- end of model -->
 
-                <label>Option 1:</label><br />
-                <input class="col-6" placeholder="Enter an option" name="name" id="opt1" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter1"></label>
-                <br />
-                <label>Option 2:</label><br />
-                <input class="col-6" placeholder="Enter another option" name="name" id="opt2" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter2"></label>
-                <br />
-                <div class="col-6" id="newElementId"></div>
-                <br/>
+                    <div class="row mb-3 visible" id="c1">
+                        <label class="col-sm-2 col-form-label">Option 1:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter1"></label></div>
 
-                <class class="grid d-md-block">
-                    <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" /></class>
-                <div class="col-8" style="background-color: #f8f9fa">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"> <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-                              </svg> </div>
-                        <p id="values"></p>
-                    
-                        </button></div>
+                    <div class="row mb-3 visible" id="c2">
+                        <label class="col-sm-2 col-form-label">Option 2:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter2"></label></div>
+
+                    <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
+                    <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
+                    <br /> -->
+                    <div class="col-6" id="newElementId"></div>
+                    <br />
 
 
+                </form>
+                <!-- Align this button -->
 
-                    <div>
-                        <p></p>
-                    </div>
-                    <div id="dynamicCheck">
-                        <input type="button" value="Create Element" onclick="createNewElement();" />
-                    </div>
-
-            </form>
             </div>
+            <div class="d-grid gap-2 d-md-block">
+                <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" /> </div>
+            <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
+            <div class="col-10" style="background-color: #f8f9fa">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clipboard" viewBox="0 0 16 16">
+                        <path
+                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                        <path
+                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                    </svg>
+                </button>
+
+                </div>
+
+                <p id="values"></p>
+
+
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <a class="navbar-brand" href="https://slack.com/apps/ACTH3LKCP-easy-poll?tab=more_info" aria-label="Página inicial do Slack" target="_blank" rel="noopener noreferrer" title="Slack Easy Poll page">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16">
-            <path
-              d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z"
-            />
-          </svg>
+                    <path
+                        d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
+                </svg>
             </a>
             <span class="text-muted"> </span>
             <a class="navbar-brand" href="https://www.kalkoken.org/apps/easypoll/web/?page=manual" aria-label="Oficial Website" target="_blank" rel="noopener noreferrer" title="Oficial Manual Website">
@@ -108,12 +128,10 @@
             <span class="text-muted"> </span>
             <a class="navbar-brand" href="https://github.com/duarch/easypoll " aria-label="Oficial repo " target="_blank " rel="noopener noreferrer " title="Visit this repo ">
                 <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-github" viewBox="0 0 16 16 ">
-            <path
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
                     0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-                    1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z "
-            />
-          </svg>
+                    1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z " />
+                </svg>
             </a>
             <span class="text-muted"> </span>
         </div>
@@ -227,16 +245,23 @@
 
 
 
-        var btn = document.getElementById('btn-clipboard');
-        var clipboard = new ClipboardJS(btn);
+        var btnClipboard = document.getElementById('btn-clipboard');
+        var clipboard = new ClipboardJS(btnClipboard);
 
-        clipboard.on('success', function(e) {
-            console.log(e);
-        });
+        // clipboard.on('success', function(e) {
+        //     console.log(e);
+        //     console.info('Action:', e.action);
+        //     console.info('Text:', e.text);
+        //     console.info('Trigger:', e.trigger);
 
-        clipboard.on('error', function(e) {
-            console.log(e);
-        });
+        //     e.clearSelection();
+        // });
+
+        // clipboard.on('error', function(e) {
+        //     console.log(e);
+        //     console.error('Action:', e.action);
+        //     console.error('Trigger:', e.trigger);
+        // });
 
         const choices = document.getElementById("qtChoices")
 
