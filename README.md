@@ -1,6 +1,6 @@
 ## Getting Started
 
-Simply access the address Easypoll Bootstrap and fill in the fields, it will generate a string with the parameters accepted by the Easypoll app. So just copy and past in the channel.
+Simply access [Easypoll](https://duarch.github.io/easypoll) Bootstrap Site and fill in the fields, it will generate a string with the parameters accepted by the Easypoll app. So just copy and past in the channel.
 
 ```
 /easypoll "Question" "Choice 1" "Choice 2" "Choice 3"
