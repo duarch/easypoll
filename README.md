@@ -1,6 +1,6 @@
 ## Getting Started
 
-Simply access <a href="https://duarch.github.io/easypoll" target="_blank">Easypoll Bootstrap Site</a> and fill in the fields, it will generate a string with the parameters accepted by the Easypoll app. So just copy and past in the channel.
+Simply access <a href="https://duarch.github.io/easypoll" target="_blank"  rel="noopener noreferrer">Easypoll Bootstrap Site</a> and fill in the fields, it will generate a string with the parameters accepted by the Easypoll app. So just copy and past in the channel.
 
 ```
 /easypoll "Question" "Choice 1" "Choice 2" "Choice 3"
