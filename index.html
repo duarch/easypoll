@@ -78,8 +78,6 @@
                     <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
                     <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
                     <br /> -->
-                    <div class="col-6" id="newElementId"></div>
-                    <br />
 
 
                 </form>
@@ -149,25 +147,54 @@
         const question = document.getElementById("question");
         const opt1 = document.getElementById("opt1");
         const opt2 = document.getElementById("opt2");
+        const opt3 = document.getElementById("opt3");
+        const opt4 = document.getElementById("opt4");
+        const opt5 = document.getElementById("opt5");
+        const opt6 = document.getElementById("opt6");
+        const opt7 = document.getElementById("opt7");
 
         const log = document.getElementById("values");
 
         const qtcounter = document.getElementById("qtcounter");
         const counter1 = document.getElementById("counter1");
         const counter2 = document.getElementById("counter2");
+        const counter3 = document.getElementById("counter3");
+        const counter4 = document.getElementById("counter4");
+        const counter5 = document.getElementById("counter5");
+        const counter6 = document.getElementById("counter6");
+        const counter7 = document.getElementById("counter7");
+
+        // stop here figure out how to make in work
 
         question.addEventListener("input", updateValue);
         opt1.addEventListener("input", updateValue);
         opt2.addEventListener("input", updateValue);
-
+        // opt3.addEventListener("input", updateValue);
+        // opt4.addEventListener("input", updateValue);
+        // opt5.addEventListener("input", updateValue);
+        // opt6.addEventListener("input", updateValue);
+        // opt7.addEventListener("input", updateValue);
 
         function updateValue() {
+
+
+
             var txtQuest = ""
             var txtOpt1 = ""
             var txtOpt2 = ""
+            var txtOpt3 = ""
+            var txtOpt4 = ""
+            var txtOpt5 = ""
+            var txtOpt6 = ""
+            var txtOpt6 = ""
             var qt = question.value.length;
             var ct1 = opt1.value.length;
             var ct2 = opt2.value.length;
+            var ct3 = opt2.value.length;
+            var ct4 = opt2.value.length;
+            var ct5 = opt2.value.length;
+            var ct6 = opt2.value.length;
+            var ct7 = opt2.value.length;
 
             if (qt != 0) {
                 var quest1 = -100 + qt;
@@ -190,8 +217,43 @@
             } else {
                 counter2.textContent = "";
             }
+            if (ct3 != 0) {
+                var chars3 = -30 + ct3;
+                counter3.textContent = `${chars3}`;
+                txtOpt3 = `"${opt3.value}"`
+            } else {
+                counter3.textContent = "";
+            }
+            if (ct4 != 0) {
+                var chars4 = -30 + ct4;
+                counter4.textContent = `${chars4}`;
+                txtOpt4 = `"${opt4.value}"`
+            } else {
+                counter4.textContent = "";
+            }
+            if (ct5 != 0) {
+                var chars5 = -30 + ct5;
+                counter5.textContent = `${chars5}`;
+                txtOpt5 = `"${opt5.value}"`
+            } else {
+                counter5.textContent = "";
+            }
+            if (ct6 != 0) {
+                var chars6 = -30 + ct6;
+                counter6.textContent = `${chars6}`;
+                txtOpt6 = `"${opt6.value}"`
+            } else {
+                counter6.textContent = "";
+            }
+            if (ct7 != 0) {
+                var chars7 = -30 + ct7;
+                counter7.textContent = `${chars7}`;
+                txtOpt7 = `"${opt7.value}"`
+            } else {
+                counter7.textContent = "";
+            }
 
-            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2}`;
+            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} ${txtOpt3} ${txtOpt4} ${txtOpt5} ${txtOpt6} ${txtOpt7}`;
         }
 
 
@@ -199,27 +261,42 @@
 
         function resetForm() {
             document.getElementById("easyform").reset();
+            qtcounter.textContent = "";
             counter1.textContent = "";
             counter2.textContent = "";
-            qtcounter.textContent = "";
+            counter3.textContent = "";
+            counter4.textContent = "";
+            counter5.textContent = "";
+            counter6.textContent = "";
+            counter7.textContent = "";
+
             log.textContent = "";
         }
 
         function createNewElement() {
             // First create a DIV element.
+
             var txtNewInputBox = document.createElement("div");
-            txtNewInputBox.setAttribute("id", "newdiv")
+            txtNewInputBox.setAttribute("id", `"c${choices.value}"`)
+            txtNewInputBox.setAttribute("class", "row mb-3 visible")
+
+
+
+
+
+            //var txtNewInputBox = document.getElementById("easyform")
 
             // Then add the content (a new input box) of the element.
-            txtNewInputBox.innerHTML =
-                `<label>Option${choices.value}:</label><br /> <input class="col-6" placeholder="Enter another option" name="name" id="opt${choices.value}" maxlength="30" /><label style="color: red" class="form-label col-1" id="counter${choices.value}"></label><br />`
+            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${choices.value}:</label>
+                        <div class="col-sm-9">
+                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt${choices.value}" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter${choices.value}"></label>`
                 // Finally put it where it is supposed to appear.
-            document.getElementById("newElementId").appendChild(txtNewInputBox);
+            document.getElementById("easyform").appendChild(txtNewInputBox);
         }
 
         function deleteNewElement() {
             //var last = choices.value
-            var select = document.getElementById("newdiv")
+            var select = document.getElementById("easyform")
 
             select.removeChild(select.lastChild)
 
