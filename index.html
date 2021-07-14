@@ -55,7 +55,8 @@
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-dash-lg" viewBox="0 0 16 16">
                                 <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
-                            </svg></button></div>
+                            </svg></button>
+                    </div>
                     <!-- model -->
                     <!-- <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
@@ -65,15 +66,18 @@
                     </div> -->
                     <!-- end of model -->
 
-                    <div class="row mb-3 visible" id="c1">
+                    <div class="col-sm-12 visible" id="c1">
                         <label class="col-sm-2 col-form-label">Option 1:</label>
-                        <div class="col-sm-9">
-                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter1"></label></div>
+                        <div class="col-md-8"></div>
+                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter1"></label>
+                    </div>
 
-                    <div class="row mb-3 visible" id="c2">
+
+
+                    <div class="col-sm-12 visible" id="c2">
                         <label class="col-sm-2 col-form-label">Option 2:</label>
-                        <div class="col-sm-9">
-                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter2"></label></div>
+                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
+                    </div>
 
                     <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
                     <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
@@ -81,9 +85,10 @@
 
 
                 </form>
-                <!-- Align this button -->
-
             </div>
+            <!-- Align this button -->
+
+
             <div class="d-grid gap-2 d-md-block">
                 <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" /> </div>
             <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
@@ -107,6 +112,7 @@
             </div>
         </div>
 
+        </div>
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
@@ -182,78 +188,96 @@
             var txtQuest = ""
             var txtOpt1 = ""
             var txtOpt2 = ""
-            var txtOpt3 = ""
-            var txtOpt4 = ""
-            var txtOpt5 = ""
-            var txtOpt6 = ""
-            var txtOpt6 = ""
-            var qt = question.value.length;
-            var ct1 = opt1.value.length;
-            var ct2 = opt2.value.length;
-            var ct3 = opt2.value.length;
-            var ct4 = opt2.value.length;
-            var ct5 = opt2.value.length;
-            var ct6 = opt2.value.length;
-            var ct7 = opt2.value.length;
+                // var txtOpt3 = ""
+                // var txtOpt4 = ""
+                // var txtOpt5 = ""
+                // var txtOpt6 = ""
+                // var txtOpt6 = ""
+
+
+
+            var qt = this.value.length;
+            var nextTag = this.nextSibling
+
+            // var qt = question.value.length;
+            // var ct1 = opt1.value.length;
+            // var ct2 = opt2.value.length;
+            // var ct3 = opt2.value.length;
+            // var ct4 = opt2.value.length;
+            // var ct5 = opt2.value.length;
+            // var ct6 = opt2.value.length;
+            // var ct7 = opt2.value.length;
 
             if (qt != 0) {
-                var quest1 = -100 + qt;
-                qtcounter.textContent = `${quest1}`;
-                txtQuest = `"${question.value}"`
+                var maxLen = this.getAttribute("maxlength")
+                var quest1 = -maxLen + qt;
+                console.log(maxLen)
+                nextTag.textContent = `${quest1}`;
+                txtQuest = `"${this.value}"`
             } else {
-                qtcounter.textContent = "";
-            }
-            if (ct1 != 0) {
-                var chars1 = -30 + ct1;
-                counter1.textContent = `${chars1}`;
-                txtOpt1 = `"${opt1.value}"`
-            } else {
-                counter1.textContent = "";
-            }
-            if (ct2 != 0) {
-                var chars2 = -30 + ct2;
-                counter2.textContent = `${chars2}`;
-                txtOpt2 = `"${opt2.value}"`
-            } else {
-                counter2.textContent = "";
-            }
-            if (ct3 != 0) {
-                var chars3 = -30 + ct3;
-                counter3.textContent = `${chars3}`;
-                txtOpt3 = `"${opt3.value}"`
-            } else {
-                counter3.textContent = "";
-            }
-            if (ct4 != 0) {
-                var chars4 = -30 + ct4;
-                counter4.textContent = `${chars4}`;
-                txtOpt4 = `"${opt4.value}"`
-            } else {
-                counter4.textContent = "";
-            }
-            if (ct5 != 0) {
-                var chars5 = -30 + ct5;
-                counter5.textContent = `${chars5}`;
-                txtOpt5 = `"${opt5.value}"`
-            } else {
-                counter5.textContent = "";
-            }
-            if (ct6 != 0) {
-                var chars6 = -30 + ct6;
-                counter6.textContent = `${chars6}`;
-                txtOpt6 = `"${opt6.value}"`
-            } else {
-                counter6.textContent = "";
-            }
-            if (ct7 != 0) {
-                var chars7 = -30 + ct7;
-                counter7.textContent = `${chars7}`;
-                txtOpt7 = `"${opt7.value}"`
-            } else {
-                counter7.textContent = "";
+                nextTag.textContent = "";
             }
 
-            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} ${txtOpt3} ${txtOpt4} ${txtOpt5} ${txtOpt6} ${txtOpt7}`;
+
+            // if (qt != 0) {
+            //     var quest1 = -100 + qt;
+            //     qtcounter.textContent = `${quest1}`;
+            //     txtQuest = `"${question.value}"`
+            // } else {
+            //     qtcounter.textContent = "";
+            // }
+            // if (ct1 != 0) {
+            //     var chars1 = -30 + ct1;
+            //     counter1.textContent = `${chars1}`;
+            //     txtOpt1 = `"${opt1.value}"`
+            // } else {
+            //     counter1.textContent = "";
+            // }
+            // if (ct2 != 0) {
+            //     var chars2 = -30 + ct2;
+            //     counter2.textContent = `${chars2}`;
+            //     txtOpt2 = `"${opt2.value}"`
+            // } else {
+            //     counter2.textContent = "";
+            // }
+            // if (ct3 != 0) {
+            //     var chars3 = -30 + ct3;
+            //     counter3.textContent = `${chars3}`;
+            //     txtOpt3 = `"${opt3.value}"`
+            // } else {
+            //     counter3.textContent = "";
+            // }
+            // if (ct4 != 0) {
+            //     var chars4 = -30 + ct4;
+            //     counter4.textContent = `${chars4}`;
+            //     txtOpt4 = `"${opt4.value}"`
+            // } else {
+            //     counter4.textContent = "";
+            // }
+            // if (ct5 != 0) {
+            //     var chars5 = -30 + ct5;
+            //     counter5.textContent = `${chars5}`;
+            //     txtOpt5 = `"${opt5.value}"`
+            // } else {
+            //     counter5.textContent = "";
+            // }
+            // if (ct6 != 0) {
+            //     var chars6 = -30 + ct6;
+            //     counter6.textContent = `${chars6}`;
+            //     txtOpt6 = `"${opt6.value}"`
+            // } else {
+            //     counter6.textContent = "";
+            // }
+            // if (ct7 != 0) {
+            //     var chars7 = -30 + ct7;
+            //     counter7.textContent = `${chars7}`;
+            //     txtOpt7 = `"${opt7.value}"`
+            // } else {
+            //     counter7.textContent = "";
+            // }
+
+            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} `;
+            // log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} ${txtOpt3} ${txtOpt4} ${txtOpt5} ${txtOpt6} ${txtOpt7}`;
         }
 
 
@@ -275,23 +299,29 @@
 
         function createNewElement() {
             // First create a DIV element.
-
+            var idx = choices.value
             var txtNewInputBox = document.createElement("div");
-            txtNewInputBox.setAttribute("id", `"c${choices.value}"`)
-            txtNewInputBox.setAttribute("class", "row mb-3 visible")
+            txtNewInputBox.setAttribute("id", `"c${idx}"`)
+            txtNewInputBox.setAttribute("class", "col-sm-12 visible")
 
 
 
 
 
-            //var txtNewInputBox = document.getElementById("easyform")
+
+
+
 
             // Then add the content (a new input box) of the element.
-            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${choices.value}:</label>
-                        <div class="col-sm-9">
-                            <input class="form-control col-sm-6" placeholder="Enter an option" name="name" id="opt${choices.value}" maxlength="30" type="text" /></div><label style="color: red" class="form-label col-1" id="counter${choices.value}"></label>`
-                // Finally put it where it is supposed to appear.
+            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${idx}:</label>
+                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt${idx}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter${idx}"></label>`
+
+
+            // Finally put it where it is supposed to appear.
             document.getElementById("easyform").appendChild(txtNewInputBox);
+            txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
+            // console.log(txtNewInputBox.childNodes[2])
+
         }
 
         function deleteNewElement() {
