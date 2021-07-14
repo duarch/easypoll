@@ -39,44 +39,49 @@
             <div class="justify-content-start">
                 <form autocomplete="off" class="row g-4" id="easyform">
                     <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label">Question</label>
-                    <textarea class="form-control col-9" placeholder="Poll question" rows="3" id="question" maxlength="100" style="height: 80px; width: 18em"></textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
+                    <textarea class="form-control col-9" placeholder="Poll question" rows="3" id="question" maxlength="100" style="height: 80px; width: 18em">
+                    </textarea>
+                    <label style="color: red" class="form-label col-1" id="qtcounter"></label>
                     <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
-                        </path>
-                    </svg>
-                    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
+                                </path>
+                            </svg>
+                        </button>
                         <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2"></input>
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()"><svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-dash-lg" viewBox="0 0 16 16">
                                 <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
-                            </svg></button>
+                            </svg>
+                        </button>
                     </div>
                     <!-- model -->
                     <!-- <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                             <input type="email" class="form-control" id="inputEmail3">
                         </div>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                     </div> -->
                     <!-- end of model -->
 
                     <div class="col-sm-12 visible" id="c1">
                         <label class="col-sm-2 col-form-label">Option 1:</label>
                         <div class="col-md-8"></div>
-                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter1"></label>
+                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" />
+                        <label style="color: red" class="form-label col-1" id="counter1"></label>
                     </div>
 
 
 
                     <div class="col-sm-12 visible" id="c2">
                         <label class="col-sm-2 col-form-label">Option 2:</label>
-                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
+                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" />
+                        <label style="color: red" class="form-label col-1" id="counter2"></label>
                     </div>
 
                     <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
@@ -90,19 +95,20 @@
 
 
             <div class="d-grid gap-2 d-md-block">
-                <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" /> </div>
+                <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" />
+            </div>
             <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
             <div class="col-10" style="background-color: #f8f9fa">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-clipboard" viewBox="0 0 16 16">
-                        <path
-                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
-                        <path
-                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-                    </svg>
-                </button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-clipboard" viewBox="0 0 16 16">
+                            <path
+                                d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                            <path
+                                d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                        </svg>
+                    </button>
 
                 </div>
 
@@ -141,25 +147,18 @@
         </div>
     </footer>
     <script>
-        const question = document.getElementById("question");
-        const opt1 = document.getElementById("opt1");
-        const opt2 = document.getElementById("opt2");
-        const opt3 = document.getElementById("opt3");
-        const opt4 = document.getElementById("opt4");
-        const opt5 = document.getElementById("opt5");
-        const opt6 = document.getElementById("opt6");
-        const opt7 = document.getElementById("opt7");
+        // const question = document.getElementById("question");
+        // const opt1 = document.getElementById("opt1");
+        // const opt2 = document.getElementById("opt2");
+        // const opt3 = document.getElementById("opt3");
+        // const opt4 = document.getElementById("opt4");
+        // const opt5 = document.getElementById("opt5");
+        // const opt6 = document.getElementById("opt6");
+        // const opt7 = document.getElementById("opt7");
 
         const log = document.getElementById("values");
 
-        const qtcounter = document.getElementById("qtcounter");
-        const counter1 = document.getElementById("counter1");
-        const counter2 = document.getElementById("counter2");
-        const counter3 = document.getElementById("counter3");
-        const counter4 = document.getElementById("counter4");
-        const counter5 = document.getElementById("counter5");
-        const counter6 = document.getElementById("counter6");
-        const counter7 = document.getElementById("counter7");
+
 
         // stop here figure out how to make in work
 
@@ -174,37 +173,25 @@
 
         function updateValue() {
 
-
-
-            var txtQuest = ""
-            var txtOpt1 = ""
-            var txtOpt2 = ""
-                // var txtOpt3 = ""
-                // var txtOpt4 = ""
-                // var txtOpt5 = ""
-                // var txtOpt6 = ""
-                // var txtOpt6 = ""
-
-
+            // var txtQuest = ""
+            // var txtOpt1 = ""
+            // var txtOpt2 = ""
 
             var qt = this.value.length;
             var nextTag = this.nextSibling
 
-            // var qt = question.value.length;
-            // var ct1 = opt1.value.length;
-            // var ct2 = opt2.value.length;
-            // var ct3 = opt2.value.length;
-            // var ct4 = opt2.value.length;
-            // var ct5 = opt2.value.length;
-            // var ct6 = opt2.value.length;
-            // var ct7 = opt2.value.length;
-
             if (qt != 0) {
                 var maxLen = this.getAttribute("maxlength")
-                var quest1 = -maxLen + qt;
-                console.log(maxLen)
-                nextTag.textContent = `${quest1}`;
-                txtQuest = `"${this.value}"`
+                var lastChar = -maxLen + qt;
+                var resultText
+
+
+                nextTag.textContent = `${lastChar}`;
+                resultText += `"${this.value}"`
+                    // console.log(resultText)
+                log.textContent = `/easypoll ${resultText}`;
+                console.log(log.textContent)
+                    // txtQuest = `"${this.value}"`
             } else {
                 nextTag.textContent = "";
             }
@@ -267,7 +254,7 @@
             //     counter7.textContent = "";
             // }
 
-            log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} `;
+            // log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} `;
             // log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} ${txtOpt3} ${txtOpt4} ${txtOpt5} ${txtOpt6} ${txtOpt7}`;
         }
 
@@ -275,91 +262,19 @@
 
 
         function resetForm() {
-            document.getElementById("easyform").reset();
-            qtcounter.textContent = "";
-            counter1.textContent = "";
-            counter2.textContent = "";
-            counter3.textContent = "";
-            counter4.textContent = "";
-            counter5.textContent = "";
-            counter6.textContent = "";
-            counter7.textContent = "";
-
             log.textContent = "";
-        }
+            document.getElementById("easyform").reset();
+            document.getElementById("qtcounter").textContent = ""
+            document.getElementById("counter1").textContent = ""
+            document.getElementById("counter2").textContent = ""
+            document.getElementById("counter3").textContent = ""
+            document.getElementById("counter4").textContent = ""
+            document.getElementById("counter5").textContent = ""
+            document.getElementById("counter6").textContent = ""
+            document.getElementById("counter7").textContent = ""
 
-        function createNewElement() {
-            // First create a DIV element.
-            var idx = choices.value
-            var txtNewInputBox = document.createElement("div");
-            txtNewInputBox.setAttribute("id", `"c${idx}"`)
-            txtNewInputBox.setAttribute("class", "col-sm-12 visible")
-
-
-
-
-
-
-
-
-
-            // Then add the content (a new input box) of the element.
-            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${idx}:</label>
-                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt${idx}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter${idx}"></label>`
-
-
-            // Finally put it where it is supposed to appear.
-            document.getElementById("easyform").appendChild(txtNewInputBox);
-            txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
-            // console.log(txtNewInputBox.childNodes[2])
 
         }
-
-        function deleteNewElement() {
-            //var last = choices.value
-            var select = document.getElementById("easyform")
-
-            select.removeChild(select.lastChild)
-
-            // I stop here 
-            // I need to remove the entire element not only parts of it
-
-
-
-
-
-
-
-
-            // var select1 = document.getElementById(`"Option${choices.value}"`)
-            // var select2 = document.getElementById(`"counter${choices.value}"`)
-            // var select3 = document.getElementById(`"opt${choices.value}"`)
-            // select1.remove()
-            // select2.remove()
-            // select3.remove()
-
-        }
-
-
-
-
-        var btnClipboard = document.getElementById('btn-clipboard');
-        var clipboard = new ClipboardJS(btnClipboard);
-
-        // clipboard.on('success', function(e) {
-        //     console.log(e);
-        //     console.info('Action:', e.action);
-        //     console.info('Text:', e.text);
-        //     console.info('Trigger:', e.trigger);
-
-        //     e.clearSelection();
-        // });
-
-        // clipboard.on('error', function(e) {
-        //     console.log(e);
-        //     console.error('Action:', e.action);
-        //     console.error('Trigger:', e.trigger);
-        // });
 
         const choices = document.getElementById("qtChoices")
 
@@ -369,7 +284,6 @@
                 qtc++
                 choices.value = qtc
                 createNewElement()
-                console.log(qtc, choices.value)
             } else {
                 return
             }
@@ -381,11 +295,45 @@
                 qtc--
                 choices.value = qtc
                 deleteNewElement()
-                console.log(qtc, choices.value)
             } else {
                 return
             }
         }
+
+
+
+        function createNewElement() {
+            // First create a DIV element.
+            var idx = choices.value
+            var txtNewInputBox = document.createElement("div");
+            txtNewInputBox.setAttribute("id", `"c${idx}"`)
+            txtNewInputBox.setAttribute("class", "col-sm-12 visible")
+
+            // Then add the content (a new input box) of the element.
+            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${idx}:</label>
+                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt${idx}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter${idx}"></label>`
+
+
+            // Finally put it where it is supposed to appear.
+            document.getElementById("easyform").appendChild(txtNewInputBox);
+            txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
+
+
+        }
+
+        function deleteNewElement() {
+
+            var select = document.getElementById("easyform")
+
+            select.removeChild(select.lastChild)
+
+
+
+        }
+
+        // From ClipboardJS
+        var btnClipboard = document.getElementById('btn-clipboard');
+        var clipboard = new ClipboardJS(btnClipboard);
     </script>
 
 
