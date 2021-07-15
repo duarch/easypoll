@@ -27,20 +27,24 @@
             }
         }
     </style>
-    <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/sticky-footer.css" rel="stylesheet" />
 </head>
 
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
+
         <div class="container">
-            <h1>Fill your options</h1>
+
+
+
+            <h1 class="display-5 fw-bold d-flex justify-content-center py-3">Ease Poll Bootstrap</h1>
+
+
 
             <div class="justify-content-start">
                 <form autocomplete="off" class="row g-2" id="easyform">
                     <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label">Question</label>
-                    <textarea class="form-control col-9" placeholder="Poll question" rows="3" id="question" maxlength="100" style="height: 80px; width: 18em">
-                    </textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
+                    <textarea class="form-control" placeholder="Poll question" rows="3" name="0" id="question" maxlength="100" style="height: 80px; width: 18em"></textarea><label style="color: red" class="form-label col-1" name="counter" id="qtcounter"></label>
                     <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -69,30 +73,24 @@
                     </div> -->
 
                     <div class="col-sm-12 visible" id="c1">
-                        <label class="col-sm-2 col-form-label">Option 1:</label>
+                        <label class="col-sm-2 col-form-label">Choice 1:</label>
                         <div class="col-md-8"></div>
-                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter1"></label>
+                        <input class="form-control col-4" placeholder="Enter an option" name="1" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter1"></label>
                     </div>
 
                     <div class="col-sm-12 visible" id="c2">
-                        <label class="col-sm-2 col-form-label">Option 2:</label>
-                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
+                        <label class="col-sm-2 col-form-label">Choice 2:</label>
+                        <input class="form-control col-sm-4" placeholder="Enter another option" name="2" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter2"></label>
                     </div>
-
-                    <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
-                    <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
-                    <br /> -->
 
                 </form>
             </div>
-            <!-- Align this button -->
 
-
-            <div class="d-grid gap-2 d-md-block">
+            <div class="d-grid gap-2 d-sm-block">
                 <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" />
             </div>
             <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
-            <div class="col-10" style="background-color: #f8f9fa">
+            <div class="col-12" style="background-color: #f8f9fa">
                 <div class="d-grid gap-2 d-sm-flex justify-content-end">
                     <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -114,29 +112,30 @@
         </div>
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light ">
         <div class="container">
-            <a class="navbar-brand" href="https://slack.com/apps/ACTH3LKCP-easy-poll?tab=more_info" aria-label="Página inicial do Slack" target="_blank" rel="noopener noreferrer" title="Slack Easy Poll page">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16">
-                    <path
-                        d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-                </svg>
-            </a>
-            <span class="text-muted"> </span>
-            <a class="navbar-brand" href="https://www.kalkoken.org/apps/easypoll/web/?page=manual" aria-label="Oficial Website" target="_blank" rel="noopener noreferrer" title="Oficial Manual Website">
-                <!-- Always refer to src path without first "/" -->
-
-                <img src="assets/icons/poll-logo.png" alt="easypoll logo" width="16" height="16" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16" />
-            </a>
-            <span class="text-muted"> </span>
-            <a class="navbar-brand" href="https://github.com/duarch/easypoll " aria-label="Oficial repo " target="_blank " rel="noopener noreferrer " title="Visit this repo ">
-                <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-github" viewBox="0 0 16 16 ">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
-                    0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-                    1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z " />
-                </svg>
-            </a>
-            <span class="text-muted"> </span>
+            <div class="d-flex justify-content-center py-3">
+                <a class="navbar-brand" href="https://slack.com/apps/ACTH3LKCP-easy-poll?tab=more_info" aria-label="Página inicial do Slack" target="_blank" rel="noopener noreferrer" title="Slack Easy Poll page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16">
+                        <path
+                            d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
+                    </svg>
+                </a>
+                <span class="text-muted"> </span>
+                <a class="navbar-brand" href="https://www.kalkoken.org/apps/easypoll/web/?page=manual" aria-label="Oficial Website" target="_blank" rel="noopener noreferrer" title="Oficial Manual Website">
+                    <!-- Always refer to src path without first "/" -->
+                    <img src="assets/icons/poll-logo.png" alt="easypoll logo" width="24" height="24" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16" />
+                </a>
+                <span class="text-muted"> </span>
+                <a class="navbar-brand" href="https://github.com/duarch/easypoll " aria-label="Oficial repo " target="_blank " rel="noopener noreferrer " title="Visit this repo ">
+                    <svg xmlns="http://www.w3.org/2000/svg " width="24" height="24" fill="currentColor " class="bi bi-github" viewBox="0 0 16 16 ">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                        0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+                        1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z " />
+                    </svg>
+                </a>
+                <span class="text-muted"> </span>
+            </div>
         </div>
     </footer>
     <script>
@@ -145,34 +144,30 @@
         document.getElementById("opt2").addEventListener("input", updateValue);
         const choices = document.getElementById("qtChoices")
         const log = document.getElementById("values");
-
-        // function generateText(x) {
-        //     console.log(x)
-        // }
+        let resultText = []
 
         function updateValue() {
-
-            var resultText = []
-            let i = choices.value
-
-            var qt = this.value.length;
-            var nextTag = this.nextSibling
+            let i = this.name
+            let qt = this.value.length;
+            let nextTag = this.nextSibling
             if (qt != 0) {
                 var maxLen = this.getAttribute("maxlength")
-                var lastChar = -maxLen + qt;
-
-                nextTag.textContent = `${lastChar}`;
-                resultText[i] += `"${this.value}"`
-                console.log(resultText[i])
-                console.table(resultText)
-                    // Parei aqui
-                    // log.textContent = `/easypoll ${resultText}`;
-                    // console.log(log.textContent)
+                var ctChar = -maxLen + qt;
+                nextTag.textContent = `${ctChar}`;
+                updateText = `"${this.value}"`
+                generateText(updateText, i)
             } else {
                 nextTag.textContent = "";
             }
+        }
 
-            log.textContent = `/easypoll ${resultText[0]} ${resultText[1]} ${resultText[2]} ${resultText[3]} ${resultText[4]} ${resultText[5]} ${resultText[6]} ${resultText[7]}`;
+        function generateText(x, y) {
+            resultText[y] = x
+            const concatObject = (obj, separator) =>
+                Object.values(obj)
+                .filter((val) => val)
+                .join(separator);
+            log.textContent = ("/easypoll " + concatObject(resultText, ' '))
         }
 
         function addElement() {
@@ -199,20 +194,17 @@
 
         function createNewElement(qtc) {
             // First create a DIV element.
-            var idx = qtc
             var txtNewInputBox = document.createElement("div");
-            txtNewInputBox.setAttribute("id", `"c${idx}"`)
+            txtNewInputBox.setAttribute("id", `"c${qtc}"`)
             txtNewInputBox.setAttribute("class", "col-sm-12 visible")
 
             // Then add the content (a new input box) of the element.
-            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${idx}:</label>
-                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt${idx}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter${idx}"></label>`
+            txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Choice ${qtc}:</label>
+                        <input class="form-control col-sm-4" placeholder="Enter another option" name="${qtc}" id="opt${qtc}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter${qtc}"></label>`
 
             // Finally put it where it is supposed to appear.
-
             document.getElementById("easyform").appendChild(txtNewInputBox);
             txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
-            // generateText(qtc)
         }
 
         function deleteNewElement() {
@@ -222,18 +214,13 @@
 
         function resetForm() {
             var tempValue = choices.value
-            log.textContent = "";
             document.getElementById("easyform").reset();
             choices.value = tempValue
-            document.getElementById("qtcounter").textContent = ""
-            document.getElementById("counter1").textContent = ""
-            document.getElementById("counter2").textContent = ""
-            document.getElementById("counter3").textContent = ""
-            document.getElementById("counter4").textContent = ""
-            document.getElementById("counter5").textContent = ""
-            document.getElementById("counter6").textContent = ""
-            document.getElementById("counter7").textContent = ""
-
+            resultText = []
+            log.textContent = "";
+            document.getElementsByName("counter").forEach(element => {
+                element.textContent = ""
+            });
         }
 
         // From ClipboardJS
