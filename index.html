@@ -37,11 +37,10 @@
             <h1>Fill your options</h1>
 
             <div class="justify-content-start">
-                <form autocomplete="off" class="row g-4" id="easyform">
+                <form autocomplete="off" class="row g-2" id="easyform">
                     <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label">Question</label>
                     <textarea class="form-control col-9" placeholder="Poll question" rows="3" id="question" maxlength="100" style="height: 80px; width: 18em">
-                    </textarea>
-                    <label style="color: red" class="form-label col-1" id="qtcounter"></label>
+                    </textarea><label style="color: red" class="form-label col-1" id="qtcounter"></label>
                     <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -51,7 +50,7 @@
                                 </path>
                             </svg>
                         </button>
-                        <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2"></input>
+                        <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2" readonly></input>
                         <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-dash-lg" viewBox="0 0 16 16">
@@ -59,35 +58,30 @@
                             </svg>
                         </button>
                     </div>
-                    <!-- model -->
-                    <!-- <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="inputEmail3">
-                        </div>
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+
+                    <!-- Future layout -->
+                    <!-- <div class="invisible"></div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Choice 1</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-text"></span>
                     </div> -->
-                    <!-- end of model -->
 
                     <div class="col-sm-12 visible" id="c1">
                         <label class="col-sm-2 col-form-label">Option 1:</label>
                         <div class="col-md-8"></div>
-                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" />
-                        <label style="color: red" class="form-label col-1" id="counter1"></label>
+                        <input class="form-control col-4" placeholder="Enter an option" name="name" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter1"></label>
                     </div>
-
-
 
                     <div class="col-sm-12 visible" id="c2">
                         <label class="col-sm-2 col-form-label">Option 2:</label>
-                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" />
-                        <label style="color: red" class="form-label col-1" id="counter2"></label>
+                        <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
                     </div>
 
                     <!-- <label class="col-sm-2 col-form-label">Option 2:</label><br />
                     <input class="col-8" placeholder="Enter another option" name="name" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter2"></label>
                     <br /> -->
-
 
                 </form>
             </div>
@@ -99,7 +93,7 @@
             </div>
             <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
             <div class="col-10" style="background-color: #f8f9fa">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <div class="d-grid gap-2 d-sm-flex justify-content-end">
                     <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-clipboard" viewBox="0 0 16 16">
@@ -112,8 +106,7 @@
 
                 </div>
 
-                <p id="values"></p>
-
+                <p class="text-break" id="values"></p>
 
             </div>
         </div>
@@ -147,143 +140,47 @@
         </div>
     </footer>
     <script>
-        // const question = document.getElementById("question");
-        // const opt1 = document.getElementById("opt1");
-        // const opt2 = document.getElementById("opt2");
-        // const opt3 = document.getElementById("opt3");
-        // const opt4 = document.getElementById("opt4");
-        // const opt5 = document.getElementById("opt5");
-        // const opt6 = document.getElementById("opt6");
-        // const opt7 = document.getElementById("opt7");
-
+        document.getElementById("question").addEventListener("input", updateValue);
+        document.getElementById("opt1").addEventListener("input", updateValue);
+        document.getElementById("opt2").addEventListener("input", updateValue);
+        const choices = document.getElementById("qtChoices")
         const log = document.getElementById("values");
 
-
-
-        // stop here figure out how to make in work
-
-        question.addEventListener("input", updateValue);
-        opt1.addEventListener("input", updateValue);
-        opt2.addEventListener("input", updateValue);
-        // opt3.addEventListener("input", updateValue);
-        // opt4.addEventListener("input", updateValue);
-        // opt5.addEventListener("input", updateValue);
-        // opt6.addEventListener("input", updateValue);
-        // opt7.addEventListener("input", updateValue);
+        // function generateText(x) {
+        //     console.log(x)
+        // }
 
         function updateValue() {
 
-            // var txtQuest = ""
-            // var txtOpt1 = ""
-            // var txtOpt2 = ""
+            var resultText = []
+            let i = choices.value
 
             var qt = this.value.length;
             var nextTag = this.nextSibling
-
             if (qt != 0) {
                 var maxLen = this.getAttribute("maxlength")
                 var lastChar = -maxLen + qt;
-                var resultText
-
 
                 nextTag.textContent = `${lastChar}`;
-                resultText += `"${this.value}"`
-                    // console.log(resultText)
-                log.textContent = `/easypoll ${resultText}`;
-                console.log(log.textContent)
-                    // txtQuest = `"${this.value}"`
+                resultText[i] += `"${this.value}"`
+                console.log(resultText[i])
+                console.table(resultText)
+                    // Parei aqui
+                    // log.textContent = `/easypoll ${resultText}`;
+                    // console.log(log.textContent)
             } else {
                 nextTag.textContent = "";
             }
 
-
-            // if (qt != 0) {
-            //     var quest1 = -100 + qt;
-            //     qtcounter.textContent = `${quest1}`;
-            //     txtQuest = `"${question.value}"`
-            // } else {
-            //     qtcounter.textContent = "";
-            // }
-            // if (ct1 != 0) {
-            //     var chars1 = -30 + ct1;
-            //     counter1.textContent = `${chars1}`;
-            //     txtOpt1 = `"${opt1.value}"`
-            // } else {
-            //     counter1.textContent = "";
-            // }
-            // if (ct2 != 0) {
-            //     var chars2 = -30 + ct2;
-            //     counter2.textContent = `${chars2}`;
-            //     txtOpt2 = `"${opt2.value}"`
-            // } else {
-            //     counter2.textContent = "";
-            // }
-            // if (ct3 != 0) {
-            //     var chars3 = -30 + ct3;
-            //     counter3.textContent = `${chars3}`;
-            //     txtOpt3 = `"${opt3.value}"`
-            // } else {
-            //     counter3.textContent = "";
-            // }
-            // if (ct4 != 0) {
-            //     var chars4 = -30 + ct4;
-            //     counter4.textContent = `${chars4}`;
-            //     txtOpt4 = `"${opt4.value}"`
-            // } else {
-            //     counter4.textContent = "";
-            // }
-            // if (ct5 != 0) {
-            //     var chars5 = -30 + ct5;
-            //     counter5.textContent = `${chars5}`;
-            //     txtOpt5 = `"${opt5.value}"`
-            // } else {
-            //     counter5.textContent = "";
-            // }
-            // if (ct6 != 0) {
-            //     var chars6 = -30 + ct6;
-            //     counter6.textContent = `${chars6}`;
-            //     txtOpt6 = `"${opt6.value}"`
-            // } else {
-            //     counter6.textContent = "";
-            // }
-            // if (ct7 != 0) {
-            //     var chars7 = -30 + ct7;
-            //     counter7.textContent = `${chars7}`;
-            //     txtOpt7 = `"${opt7.value}"`
-            // } else {
-            //     counter7.textContent = "";
-            // }
-
-            // log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} `;
-            // log.textContent = `/easypoll ${txtQuest} ${txtOpt1} ${txtOpt2} ${txtOpt3} ${txtOpt4} ${txtOpt5} ${txtOpt6} ${txtOpt7}`;
+            log.textContent = `/easypoll ${resultText[0]} ${resultText[1]} ${resultText[2]} ${resultText[3]} ${resultText[4]} ${resultText[5]} ${resultText[6]} ${resultText[7]}`;
         }
-
-
-
-
-        function resetForm() {
-            log.textContent = "";
-            document.getElementById("easyform").reset();
-            document.getElementById("qtcounter").textContent = ""
-            document.getElementById("counter1").textContent = ""
-            document.getElementById("counter2").textContent = ""
-            document.getElementById("counter3").textContent = ""
-            document.getElementById("counter4").textContent = ""
-            document.getElementById("counter5").textContent = ""
-            document.getElementById("counter6").textContent = ""
-            document.getElementById("counter7").textContent = ""
-
-
-        }
-
-        const choices = document.getElementById("qtChoices")
 
         function addElement() {
             let qtc = choices.value
             if (qtc <= 6) {
                 qtc++
                 choices.value = qtc
-                createNewElement()
+                createNewElement(qtc)
             } else {
                 return
             }
@@ -300,11 +197,9 @@
             }
         }
 
-
-
-        function createNewElement() {
+        function createNewElement(qtc) {
             // First create a DIV element.
-            var idx = choices.value
+            var idx = qtc
             var txtNewInputBox = document.createElement("div");
             txtNewInputBox.setAttribute("id", `"c${idx}"`)
             txtNewInputBox.setAttribute("class", "col-sm-12 visible")
@@ -313,19 +208,31 @@
             txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Option ${idx}:</label>
                         <input class="form-control col-sm-4" placeholder="Enter an option" name="name" id="opt${idx}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" id="counter${idx}"></label>`
 
-
             // Finally put it where it is supposed to appear.
+
             document.getElementById("easyform").appendChild(txtNewInputBox);
             txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
+            // generateText(qtc)
         }
 
         function deleteNewElement() {
-
             var select = document.getElementById("easyform")
-
             select.removeChild(select.lastChild)
+        }
 
-
+        function resetForm() {
+            var tempValue = choices.value
+            log.textContent = "";
+            document.getElementById("easyform").reset();
+            choices.value = tempValue
+            document.getElementById("qtcounter").textContent = ""
+            document.getElementById("counter1").textContent = ""
+            document.getElementById("counter2").textContent = ""
+            document.getElementById("counter3").textContent = ""
+            document.getElementById("counter4").textContent = ""
+            document.getElementById("counter5").textContent = ""
+            document.getElementById("counter6").textContent = ""
+            document.getElementById("counter7").textContent = ""
 
         }
 
