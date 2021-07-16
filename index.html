@@ -34,26 +34,28 @@
             <h1 class="display-5 fw-bold d-flex justify-content-center py-3">Easy Poll Bootstrap</h1>
             <div class="justify-content-start">
                 <form autocomplete="off" class="row g-2" id="easyform">
-                    <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label">Question</label>
-                    <textarea class="form-control" placeholder="Poll question" rows="3" name="0" id="question" maxlength="100" style="height: 80px; width: 18em"></textarea><label style="color: red" class="form-label col-1" name="counter" id="qtcounter"></label>
-                    <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="addElement()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
-                                </path>
-                            </svg>
-                        </button>
-                        <input type="text" class="btn btn-outline-secondary btn-sm" id="qtChoices" value="2" readonly></input>
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="removeElement()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-dash-lg" viewBox="0 0 16 16">
-                                <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
-                            </svg>
-                        </button>
-                    </div>
 
+                    <label for="exampleFormControlTextarea1" class="form-label col-sm-2 col-form-label fw-bolder me-2">Question</label>
+                    <div class="input-group mb-3 col-sm-12">
+                        <textarea class="form-control col-sm-8" placeholder="Poll question" rows="3" name="0" id="question" maxlength="100" style="height: 80px; "></textarea><label style="color: red" class="form-label col-2" name="counter mx-3 px-2" id="qtcounter"></label>
+                        <div class="d-grid d-lg-block col-1 btn-group-vertical" role="group" aria-label="...">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addElement()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z">
+                                    </path>
+                                </svg>
+                            </button>
+                            <input type="text" class="btn btn-outline-primary btn-sm" id="qtChoices" value="2" readonly></input>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="removeElement()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                    <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                     <!-- Future layout -->
                     <!-- <div class="invisible"></div>
 
@@ -64,13 +66,13 @@
                     </div> -->
 
                     <div class="col-sm-12 visible" id="c1">
-                        <label class="col-sm-2 col-form-label">Choice 1:</label>
+                        <label class="col-sm-2 col-form-label fw-bolder">Choice 1:</label>
                         <div class="col-md-8"></div>
                         <input class="form-control col-4" placeholder="Enter an option" name="1" id="opt1" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter1"></label>
                     </div>
 
                     <div class="col-sm-12 visible" id="c2">
-                        <label class="col-sm-2 col-form-label">Choice 2:</label>
+                        <label class="col-sm-2 col-form-label fw-bolder">Choice 2:</label>
                         <input class="form-control col-sm-4" placeholder="Enter another option" name="2" id="opt2" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter2"></label>
                     </div>
 
@@ -81,9 +83,9 @@
                 <input class="btn btn-secondary" type="button" onclick="resetForm()" value="Reset form" />
             </div>
             <label class="col-sm-6 col-form-label">Copy and paste in Slack Channel</label><br />
-            <div class="col-12" style="background-color: #f8f9fa">
+            <div class="col-12 bg-light">
                 <div class="d-grid gap-2 d-sm-flex justify-content-end">
-                    <button class="btn" id="btn-clipboard" data-clipboard-target="#values">
+                    <button class="btn btn-outline-primary" id="btn-clipboard" data-clipboard-target="#values">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-clipboard" viewBox="0 0 16 16">
                             <path
@@ -95,7 +97,7 @@
 
                 </div>
 
-                <p class="text-break" id="values"></p>
+                <p style="border-left: 1rem solid #f8f9fa; border-bottom: 1rem solid #f8f9fa;" class="text-break" id="values"></p>
 
             </div>
         </div>
@@ -112,7 +114,7 @@
                 <span class="text-muted"> </span>
                 <a class="navbar-brand" href="https://www.kalkoken.org/apps/easypoll/web/?page=manual" aria-label="Oficial Website" target="_blank" rel="noopener noreferrer" title="Oficial Manual Website">
                     <!-- Always refer to src path without first "/" -->
-                    <img src="assets/icons/poll-logo.png" alt="easypoll logo" width="24" height="24" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16" />
+                    <img src="assets/icons/poll-logo.png" alt="easypoll logo" width="32" height="32" fill="currentColor" class="bi bi-slack" viewBox="0 0 16 16" />
                 </a>
                 <span class="text-muted"> </span>
                 <a class="navbar-brand" href="https://github.com/duarch/easypoll " aria-label="Oficial repo " target="_blank " rel="noopener noreferrer " title="Visit this repo ">

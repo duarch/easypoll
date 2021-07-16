@@ -9,11 +9,16 @@ function updateValue() {
     let i = this.name
     let qt = this.value.length;
     let nextTag = this.nextSibling
-    if (qt != 0) {
+    let updateText
+    if (qt >= 0) {
         var maxLen = this.getAttribute("maxlength")
         var ctChar = -maxLen + qt;
-        nextTag.textContent = `${ctChar}`;
-        updateText = `"${this.value}"`
+        if (ctChar == -maxLen) {
+            nextTag.textContent = ""
+        } else {
+            nextTag.textContent = `${ctChar}`;
+        }
+        updateText = `${this.value}`
         generateText(updateText, i)
     } else {
         nextTag.textContent = "";
@@ -26,7 +31,7 @@ function generateText(x, y) {
         Object.values(obj)
         .filter((val) => val)
         .join(separator);
-    log.textContent = ("/easypoll " + concatObject(resultText, ' '))
+    log.textContent = ("/easypoll " + "\"" + concatObject(resultText, "\" \"") + "\"")
 }
 
 function addElement() {
@@ -54,11 +59,11 @@ function removeElement() {
 function createNewElement(qtc) {
     // First create a DIV element.
     var txtNewInputBox = document.createElement("div");
-    txtNewInputBox.setAttribute("id", `"c${qtc}"`)
     txtNewInputBox.setAttribute("class", "col-sm-12 visible")
+    txtNewInputBox.setAttribute("id", `c${qtc}`)
 
     // Then add the content (a new input box) of the element.
-    txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label">Choice ${qtc}:</label>
+    txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label fw-bolder">Choice ${qtc}:</label>
                 <input class="form-control col-sm-4" placeholder="Enter another option" name="${qtc}" id="opt${qtc}" maxlength="30" type="text" /><label style="color: red" class="form-label col-1" name="counter" id="counter${qtc}"></label>`
 
     // Finally put it where it is supposed to appear.
