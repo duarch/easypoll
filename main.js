@@ -50,7 +50,7 @@ function removeElement() {
     if (qtc >= 3) {
         qtc--
         choices.value = qtc
-        deleteNewElement()
+        deleteLastElement(qtc)
     } else {
         return
     }
@@ -61,6 +61,7 @@ function createNewElement(qtc) {
     var txtNewInputBox = document.createElement("div");
     txtNewInputBox.setAttribute("class", "col-sm-12 visible")
     txtNewInputBox.setAttribute("id", `c${qtc}`)
+    txtNewInputBox.setAttribute("name", `${qtc}`)
 
     // Then add the content (a new input box) of the element.
     txtNewInputBox.innerHTML = `<label class="col-sm-2 col-form-label fw-bolder">Choice ${qtc}:</label>
@@ -71,8 +72,16 @@ function createNewElement(qtc) {
     txtNewInputBox.childNodes[2].addEventListener("input", updateValue);
 }
 
-function deleteNewElement() {
+function deleteLastElement(qtc) {
     var select = document.getElementById("easyform")
+    var idel = qtc + 1
+    resultText[idel] = ""
+    const concatObject = (obj, separator) =>
+        Object.values(obj)
+        .filter((val) => val)
+        .join(separator);
+    log.textContent = ("/easypoll " + "\"" + concatObject(resultText, "\" \"") + "\"")
+
     select.removeChild(select.lastChild)
 }
 
@@ -82,6 +91,7 @@ function resetForm() {
     choices.value = tempValue
     resultText = []
     log.textContent = "";
+
     document.getElementsByName("counter").forEach(element => {
         element.textContent = ""
     });
